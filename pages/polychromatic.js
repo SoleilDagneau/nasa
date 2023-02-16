@@ -2,6 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useState } from "react";
+import styles from '@/styles/Home.module.css'
 
 export default function Polychromatic() {
 const [image, setImage] = useState([]);
@@ -56,16 +57,20 @@ const getPolychromaticData = async () => {
 
     return (
         <>
-        Polychromatic
+        <div className={styles.main2}>
+            <h1 className={styles.titlemain}>POLYCHROMATIC</h1>
+        <div className={styles.topcont}>
         <Image src={image} alt={image} width={200} height={200}/>
         <div>
             {time}
         </div>
         <div>{coords[0]}, {coords[1]}</div>
+        </div>
+        
 
         <table>
             <thead>
-                <tr>
+                <tr className={styles.topcont2}> 
                     <th>Time</th>
                     <th>Latitude</th>
                     <th>Longitude</th>
@@ -76,13 +81,13 @@ const getPolychromaticData = async () => {
                 {
                     images.map((e, i) => {
                         return(
-                            <tr key={i}>
+                            <tr  className={styles.subtitle} key={i}>
                                 <td>{e.time}</td>
                                 <td>{e.coords.lat}</td>
                                 <td>{e.coords.lon}</td>
                                 <td><Image src={e.image} alt={i} width={200} height={200}/></td>
                                 <td>
-                                    <button onClick={() => {
+                                    <button  className={styles.button} onClick={() => {
                                         setImage(e.image);
                                         setTime(e.time);
                                         setCoords([e.coords.lat, e.coords.lon])
@@ -96,6 +101,8 @@ const getPolychromaticData = async () => {
                 }
             </tbody>
         </table>
+        </div>
+        
         </>
     )
 }
