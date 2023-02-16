@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from '@/styles/Home.module.css'
+import Link from 'next/link';
 
 export default function Polychromatic() {
 const [image, setImage] = useState([]);
@@ -58,7 +59,7 @@ const getPolychromaticData = async () => {
     return (
         <>
         <div className={styles.main2}>
-            <h1 className={styles.titlemain}>POLYCHROMATIC</h1>
+        <Link href='/' className={styles.titlemain}>POLYCHROMATIC</Link>
         <div className={styles.topcont}>
         <Image src={image} alt={image} width={200} height={200}/>
         <div>
