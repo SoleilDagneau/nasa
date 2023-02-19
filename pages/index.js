@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 
 export default function Home() {
+
   const [data, setData] = useState();
 
 const apiKey = 'prAIyFAGKrBgfx1OV60aRqmNSHOxcCO3WKSea4Tt';
