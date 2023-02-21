@@ -12,8 +12,8 @@ const [time, setTime] = useState('Loading');
 const [date, setDate] = useState('');
 const [coords, setCoords] = useState({});
 
-const apiKey = 'prAIyFAGKrBgfx1OV60aRqmNSHOxcCO3WKSea4Tt';
-const url = `https:/epic.gsfc.nasa.gov/api/natural?api_key=${apiKey}`
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const url = `https://epic.gsfc.nasa.gov/api/natural?api_key=${apiKey}`
 
 const getPolychromaticData = async () => {
     const res = await axios.get(url);
